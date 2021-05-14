@@ -418,7 +418,7 @@ contract ERC20 is Context, IERC20 {
 
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.7.6;
+pragma solidity ^0.8.0;
 
 contract Yogi is ERC20 {
     constructor(uint256 initialSupply) ERC20("Yogi", "YOGI") {
