@@ -27,7 +27,7 @@ contract Multicall {
         }
     }
     // Helper functions
-    function getBnbBalance(address addr) public view returns (uint256 balance) {
+    function getBalance(address addr) public view returns (uint256 balance) {
         balance = addr.balance;
     }
     function getBlockHash(uint256 blockNumber) public view returns (bytes32 blockHash) {

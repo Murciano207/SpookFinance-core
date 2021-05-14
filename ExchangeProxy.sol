@@ -310,13 +310,13 @@ contract ExchangeProxy is Ownable {
         uint    maxPrice;
     }
 
-    TokenInterface wbnb;
+    TokenInterface wnative;
     RegistryInterface registry;
-    address private constant BNB_ADDRESS = address(0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB);
+    address private constant NATIVE_ADDRESS = address(0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE);
     uint private constant BONE = 10**18;
 
-    constructor(address _wbnb) public {
-        wbnb = TokenInterface(_wbnb);
+    constructor(address _wnative) public {
+        wnative = TokenInterface(_wnative);
     }
 
     function setRegistry(address _registry) external onlyOwner {
@@ -545,10 +545,10 @@ contract ExchangeProxy is Ownable {
         returns (uint totalAmountOut)
     {
         Swap[] memory swaps;
-        if (isBNB(tokenIn)) {
-          (swaps,) = viewSplitExactIn(address(wbnb), address(tokenOut), totalAmountIn, nPools);
-        } else if (isBNB(tokenOut)){
-          (swaps,) = viewSplitExactIn(address(tokenIn), address(wbnb), totalAmountIn, nPools);
+        if (isNative(tokenIn)) {
+          (swaps,) = viewSplitExactIn(address(wnative), address(tokenOut), totalAmountIn, nPools);
+        } else if (isNative(tokenOut)){
+          (swaps,) = viewSplitExactIn(address(tokenIn), address(wnative), totalAmountIn, nPools);
         } else {
           (swaps,) = viewSplitExactIn(address(tokenIn), address(tokenOut), totalAmountIn, nPools);
         }
@@ -567,10 +567,10 @@ contract ExchangeProxy is Ownable {
         returns (uint totalAmountIn)
     {
         Swap[] memory swaps;
-        if (isBNB(tokenIn)) {
-          (swaps,) = viewSplitExactOut(address(wbnb), address(tokenOut), totalAmountOut, nPools);
-        } else if (isBNB(tokenOut)){
-          (swaps,) = viewSplitExactOut(address(tokenIn), address(wbnb), totalAmountOut, nPools);
+        if (isNative(tokenIn)) {
+          (swaps,) = viewSplitExactOut(address(wnative), address(tokenOut), totalAmountOut, nPools);
+        } else if (isNative(tokenOut)){
+          (swaps,) = viewSplitExactOut(address(tokenIn), address(wnative), totalAmountOut, nPools);
         } else {
           (swaps,) = viewSplitExactOut(address(tokenIn), address(tokenOut), totalAmountOut, nPools);
         }
@@ -774,16 +774,16 @@ contract ExchangeProxy is Ownable {
     }
 
     function transferFromAll(TokenInterface token, uint amount) internal returns(bool) {
-        if (isBNB(token)) {
-            wbnb.deposit.value(msg.value)();
+        if (isNative(token)) {
+            wnative.deposit.value(msg.value)();
         } else {
             require(token.transferFrom(msg.sender, address(this), amount), "ERR_TRANSFER_FAILED");
         }
     }
 
     function getBalance(TokenInterface token) internal view returns (uint) {
-        if (isBNB(token)) {
-            return wbnb.balanceOf(address(this));
+        if (isNative(token)) {
+            return wnative.balanceOf(address(this));
         } else {
             return token.balanceOf(address(this));
         }
@@ -794,17 +794,17 @@ contract ExchangeProxy is Ownable {
             return true;
         }
 
-        if (isBNB(token)) {
-            wbnb.withdraw(amount);
+        if (isNative(token)) {
+            wnative.withdraw(amount);
             (bool xfer,) = msg.sender.call.value(amount)("");
-            require(xfer, "ERR_BNB_FAILED");
+            require(xfer, "ERR_NATIVE_FAILED");
         } else {
             require(token.transfer(msg.sender, amount), "ERR_TRANSFER_FAILED");
         }
     }
 
-    function isBNB(TokenInterface token) internal pure returns(bool) {
-        return (address(token) == BNB_ADDRESS);
+    function isNative(TokenInterface token) internal pure returns(bool) {
+        return (address(token) == NATIVE_ADDRESS);
     }
 
     function() external payable {}
