@@ -21,6 +21,7 @@ Yogi is based on Balancer implementation of an [N-dimensional invariant surface]
 * BActions: [`0xcd30F8eeBEa878c7967D86dE5C5Dac7EE18cdd14`](https://explorer-mainnet.maticvigil.com/address/0xcd30F8eeBEa878c7967D86dE5C5Dac7EE18cdd14#code)
 * Exchange Proxy: [`0x11bC5d49429eD36ac62F93b523235cd76e022900`](https://explorer-mainnet.maticvigil.com/address/0x11bC5d49429eD36ac62F93b523235cd76e022900#code)
 * Onchain Registry: [`0xbF9fdFBF1106DC38a86398E051981ADAffC47c16`](https://explorer-mainnet.maticvigil.com/address/0xbF9fdFBF1106DC38a86398E051981ADAffC47c16#code)
+* MasterYogi: [`0xE62F34221D097C135aEDf824B4588B284958222D`](https://explorer-mainnet.maticvigil.com/address/0xE62F34221D097C135aEDf824B4588B284958222D#code)
 
 ### BSC
 
@@ -35,3 +36,4 @@ Yogi is based on Balancer implementation of an [N-dimensional invariant surface]
 * BActions: [`0xcd30F8eeBEa878c7967D86dE5C5Dac7EE18cdd14`](https://bscscan.com/address/0xcd30F8eeBEa878c7967D86dE5C5Dac7EE18cdd14#code)
 * Exchange Proxy: [`0x9e164aFB84830ab4f7e037e1422A0aeD3A401B0C`](https://bscscan.com/address/0x9e164aFB84830ab4f7e037e1422A0aeD3A401B0C#code)
 * Onchain Registry: [`0xbF9fdFBF1106DC38a86398E051981ADAffC47c16`](https://bscscan.com/address/0xbF9fdFBF1106DC38a86398E051981ADAffC47c16#code)
+* MasterYogi: [`0x1Ef3D43B0b031dd896DcbDC383E180790756C864`](https://bscscan.com/address/0x1Ef3D43B0b031dd896DcbDC383E180790756C864#code)
