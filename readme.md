@@ -25,7 +25,7 @@ Yogi is based on Balancer implementation of an [N-dimensional invariant surface]
 
 ### BSC
 
-* YOGI: [`0x88888C8783a88aD40d995073Ab7FBbe8d34aCdA8`](https://explorer-mainnet.maticvigil.com/address/0x88888C8783a88aD40d995073Ab7FBbe8d34aCdA8#code)
+* YOGI: [`0x88888C8783a88aD40d995073Ab7FBbe8d34aCdA8`](https://bscscan.com/address/0x88888C8783a88aD40d995073Ab7FBbe8d34aCdA8#code)
 * Core Pool Factory: [`0x2Fab27B3B379b550AED296B7Fb48D7EfEAabda57`](https://bscscan.com/address/0x2Fab27B3B379b550AED296B7Fb48D7EfEAabda57#code)
 * BalancerSafeMath \(library\): [`0x11618Ca09485872A7a480d568F2bdF658bd3DDF4`](https://bscscan.com/address/0x11618Ca09485872A7a480d568F2bdF658bd3DDF4#code)
 * RightsManager \(library\): [`0x71aEC9E1D7Aa40D9f6cCC7b7001Fe8d16a92d42C`](https://bscscan.com/address/0x71aEC9E1D7Aa40D9f6cCC7b7001Fe8d16a92d42C#code)
